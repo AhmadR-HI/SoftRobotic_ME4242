@@ -134,50 +134,6 @@ retraction winder mechanism
 
 ### F. Arduino Code
 
-This appendix shows the code on the Arduino. To control the main airflow to the expanding actuator a servo motor can be attached to the air supply manual valve. The servo can then be controlled using a potentiometer. The code also contains functions for controlling 4 possible valves and toggling the air supply pump for the bending actuators. These, however, are not dynamically used in the current version as they are controlled manually using a button and switch on the breadboard.
+This appendix links to the code on the Arduino. To control the main airflow to the expanding actuator a servo motor can be attached to the air supply manual valve. The servo can then be controlled using a potentiometer. The code also contains functions for controlling 4 possible valves and toggling the air supply pump for the bending actuators. These, however, are not dynamically used in the current version as they are controlled manually using a button and switch on the breadboard.
 
-```
-#include <Servo.h>
-
-//Pins
-#define VALVE_CTRL_0  3
-#define VALVE_CTRL_1  9
-#define VALVE_CTRL_2  10
-#define VALVE_CTRL_3  11
-#define PUMP_CTRL     5
-#define servoPin      6
-#define potPin        A0
-
-//Pump control
-#define PUMP_ON   digitalWrite(PUMP_CTRL, HIGH);
-#define PUMP_OFF  digitalWrite(PUMP_CTRL, LOW); 
-
-Servo airflowServo;
-
-void setup() {
-  Serial.begin(115200);
-  pinMode(VALVE_CTRL_0, OUTPUT);
-  pinMode(VALVE_CTRL_1, OUTPUT);
-  pinMode(VALVE_CTRL_2, OUTPUT);
-  pinMode(VALVE_CTRL_3, OUTPUT);
-  pinMode(PUMP_CTRL, OUTPUT);
-
-  VALVE_ON(VALVE_CTRL_0);
-  VALVE_OFF(VALVE_CTRL_1);
-  VALVE_OFF(VALVE_CTRL_2);
-  VALVE_OFF(VALVE_CTRL_3);
-  PUMP_ON;
-}
-
-void loop() {
-  airflowServo.write(map(analogRead(potPin), 0, 1023, 0, 90));
-}
-
-void VALVE_ON(byte VALVE_INDEX){
-  digitalWrite(VALVE_INDEX, HIGH);
-}
-
-void VALVE_OFF(byte VALVE_INDEX){
-  digitalWrite(VALVE_INDEX, LOW);
-}
-```
+The code is available [here](/SoftRobotCode.ino)
