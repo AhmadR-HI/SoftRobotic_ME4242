@@ -1,4 +1,4 @@
-# just-the-docs-template
+# me4242 Project
 
 Group Project for ME4242, made with love
 
