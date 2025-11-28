@@ -136,4 +136,4 @@ retraction winder mechanism
 
 This appendix links to the code on the Arduino. To control the main airflow to the expanding actuator a servo motor can be attached to the air supply manual valve. The servo can then be controlled using a potentiometer. The code also contains functions for controlling 4 possible valves and toggling the air supply pump for the bending actuators. These, however, are not dynamically used in the current version as they are controlled manually using a button and switch on the breadboard.
 
-The code is available [here](/SoftRobotCode.ino)
+The code is available [here](https://github.com/AhmadR-HI/SoftRobotic_ME4242/blob/main/SoftRobotCode.ino)
